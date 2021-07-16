@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 # Reading the Salaries.csv file using pandas
 salaryData = pd.read_csv('Salaries.csv')
-#print(salaryData)
+print(salaryData)
 
 '''
     1ai) What is the dimension of the dataset?
@@ -25,7 +25,7 @@ salaryData = pd.read_csv('Salaries.csv')
 '''
 
 # Seeing the number of null/empty values in the df
-#print(salaryData.isnull().sum())
+print(salaryData.isnull().sum())
 '''
     1bi) Tells me that there are 2 missing values in the 'rank' column, and 1 missing value in the 'salary' column
 '''
@@ -35,14 +35,14 @@ salaryData['rank'].fillna('AsstProf',inplace=True)
 salaryData['salary'].fillna(88000,inplace=True)
 
 #confirming no more missing values
-#print(salaryData.isnull().sum())
+print(salaryData.isnull().sum())
 
 #creating a new CSV to just double check the values are present
 salaryData.to_csv('newCsvSalary.csv')
 
 #1biii)
 
-#print(salaryData.nlargest(5,['salary']))
+print(salaryData.nlargest(5,['salary']))
 '''
     rank discipline  phd  service     sex    salary
 0   Prof          B   56       49    Male  186960.0
@@ -62,16 +62,18 @@ assistantProfessorCombinedSalary = salaryData.loc[salaryData['rank'] == "AsstPro
 #print("male: ", maleCombinedSalary)
 #print("female: ", femaleCombinedSalary)
 
-#print("prof: ", professorsCombinedSalary)
-#print("assistant prof: ", assistantProfessorCombinedSalary)
-#print("associate prof: ", associateProfessorsCombinedSalary)
+print("prof: ", professorsCombinedSalary)
+print("assistant prof: ", assistantProfessorCombinedSalary)
+print("associate prof: ", associateProfessorsCombinedSalary)
 
 #2
 '''
+
 gender = ['Male','Female']
 salary = [maleCombinedSalary,femaleCombinedSalary]
 plt.bar(gender,salary)
 plt.show()
+
 '''
 
 #3
@@ -82,40 +84,4 @@ plt.bar(typeOfProfessor, salary)
 plt.show()
 '''
 
-#4
 
-#Bar graph plot for each professor type with each sex (e.g; Male Asst. Prof vs Female Asst. Prof) to see differences
-
-femaleProfessor = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "Prof"), "salary"].sum()
-maleProfessor = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "Prof"), "salary"].sum()
-
-femaleAsstProf = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AsstProf"), "salary"].sum()
-maleAsstProf = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AsstProf"), "salary"].sum()
-
-femaleAssocProf = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AssocProf"), "salary"].sum()
-maleAssocProf = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AssocProf"), "salary"].sum()
-
-
-categories = ["Professors", "Asst. Professors", "Assoc. Professors"]
-femaleSalaries = [femaleProfessor, femaleAsstProf, femaleAssocProf]
-maleSalaries = [maleProfessor, maleAsstProf, maleAssocProf]\
-
-
-#print(femaleSalaries)
-#print(maleSalaries)
-
-b1 = np.arange(len(categories))
-b2 = [i+0.3 for i in b1]
-
-plt.bar(b1, femaleSalaries, 0.3, label="Female")
-plt.bar(b2, maleSalaries, 0.3, label="Male")
-
-plt.xlabel("Professor Type & Gender")
-plt.ylabel("Salary")
-plt.title("Professor Type vs Sex")
-plt.xticks(b1, categories)
-plt.legend()
-plt.show()
-plt.plot()
-
-#5
