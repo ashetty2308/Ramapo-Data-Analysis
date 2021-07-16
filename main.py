@@ -86,14 +86,14 @@ plt.show()
 
 #Plotting each professor type with each sex (e.g; Male Asst. Prof vs Female Asst. Prof) to see differences
 
-femaleProfessor = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "Prof"), "salary"].sum()
-maleProfessor = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "Prof"), "salary"].sum()
+femaleProfessor = (salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "Prof"), "salary"].sum())/(len(salaryData.loc[(salaryData["sex"]=="Female") & (salaryData["rank"]=="Prof"),"salary"]))
+maleProfessor = (salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "Prof"), "salary"].sum())/(len(salaryData.loc[(salaryData["sex"]=="Male") & (salaryData["rank"]=="Prof"),"salary"]))
 
-femaleAsstProf = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AsstProf"), "salary"].sum()
-maleAsstProf = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AsstProf"), "salary"].sum()
+femaleAsstProf = (salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AsstProf"), "salary"].sum())/(len(salaryData.loc[(salaryData["sex"]=="Female") & (salaryData["rank"]=="AsstProf"),"salary"]))
+maleAsstProf = (salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AsstProf"), "salary"].sum())/(len(salaryData.loc[(salaryData["sex"]=="Male") & (salaryData["rank"]=="AsstProf"),"salary"]))
 
-femaleAssocProf = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AssocProf"), "salary"].sum()
-maleAssocProf = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AssocProf"), "salary"].sum()
+femaleAssocProf = (salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AssocProf"), "salary"].sum())/(len(salaryData.loc[(salaryData["sex"]=="Female") & (salaryData["rank"]=="AssocProf"),"salary"]))
+maleAssocProf = (salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AssocProf"), "salary"].sum())/(len(salaryData.loc[(salaryData["sex"]=="Male") & (salaryData["rank"]=="AssocProf"),"salary"]))
 
 
 categories = ["Professors", "Asst. Professors", "Assoc. Professors"]
