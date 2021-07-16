@@ -112,7 +112,7 @@ plt.bar(b2, maleSalaries, 0.3, label="Male")
 
 plt.xlabel("Professor Type & Gender")
 plt.ylabel("Salary")
-plt.title("Professor Type vs Sex")
+plt.title("Average Salary for Professor Type and Sex")
 plt.xticks(b1, categories)
 plt.legend()
 plt.show()
