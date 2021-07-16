@@ -68,12 +68,10 @@ print("associate prof: ", associateProfessorsCombinedSalary)
 
 #2
 '''
-
 gender = ['Male','Female']
 salary = [maleCombinedSalary,femaleCombinedSalary]
 plt.bar(gender,salary)
 plt.show()
-
 '''
 
 #3
@@ -83,5 +81,28 @@ salary = [professorsCombinedSalary,assistantProfessorCombinedSalary, associatePr
 plt.bar(typeOfProfessor, salary)
 plt.show()
 '''
+
+#4
+
+femaleProfessor = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "Prof"), "salary"].sum()
+maleProfessor = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "Prof"), "salary"].sum()
+
+femaleAsstProf = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AsstProf"), "salary"].sum()
+maleAsstProf = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AsstProf"), "salary"].sum()
+
+femaleAssocProf = salaryData.loc[(salaryData["sex"] == "Female") & (salaryData["rank"] == "AssocProf"), "salary"].sum()
+maleAssocProf = salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["rank"] == "AssocProf"), "salary"].sum()
+categories = ["Professors", "Asst. Professors", "Assoc. Professors"]
+
+plt.bar("Female Assoc. Prof", femaleAssocProf, 0.4, label="Female Assoc.")
+plt.bar("Female Asst. Prof", femaleAsstProf, 0.4, label="Female Asst.")
+plt.bar("Female Prof", femaleProfessor, 0.4, label="Female Prof.")
+
+plt.xlabel("Professor Type & Gender")
+plt.ylabel("Salary")
+plt.title("Professor Type vs Sex")
+plt.legend()
+plt.show()
+plt.plot()
 
 
