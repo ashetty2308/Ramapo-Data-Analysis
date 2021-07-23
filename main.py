@@ -43,6 +43,7 @@ salaryData.to_csv('newCsvSalary.csv')
 #1biii)
 
 #print(salaryData.nlargest(5,['salary']))
+
 '''
     rank discipline  phd  service     sex    salary
 0   Prof          B   56       49    Male  186960.0
@@ -52,35 +53,38 @@ salaryData.to_csv('newCsvSalary.csv')
 31  Prof          B   22       21    Male  155750.0
 '''
 
-maleCombinedSalary = salaryData.loc[salaryData['sex'] == "Male", "salary"].sum()
-femaleCombinedSalary = salaryData.loc[salaryData['sex'] == "Female", "salary"].sum()
-
-professorsCombinedSalary = salaryData.loc[salaryData['rank'] == "Prof", "salary"].sum()
-associateProfessorsCombinedSalary = salaryData.loc[salaryData['rank'] == "AssocProf", "salary"].sum()
-assistantProfessorCombinedSalary = salaryData.loc[salaryData['rank'] == "AsstProf", "salary"].sum()
-
-#print("male: ", maleCombinedSalary)
-#print("female: ", femaleCombinedSalary)
-
-#print("prof: ", professorsCombinedSalary)
-#print("assistant prof: ", assistantProfessorCombinedSalary)
-#print("associate prof: ", associateProfessorsCombinedSalary)
-
 #2
-'''
+
+#change y axis to fit data
+maleCombinedSalary = (salaryData.loc[salaryData['sex'] == "Male", "salary"].sum())/(len(salaryData.loc[(salaryData["sex"] == "Male"), "salary"]))
+femaleCombinedSalary = (salaryData.loc[salaryData['sex'] == "Female", "salary"].sum())/(len(salaryData.loc[(salaryData["sex"] == "Female"), "salary"]))
+
+professorsCombinedSalary = (salaryData.loc[salaryData['rank'] == "Prof", "salary"].sum())/(len(salaryData.loc[(salaryData["rank"]=="Prof"),"salary"]))
+associateProfessorsCombinedSalary = (salaryData.loc[salaryData['rank'] == "AssocProf", "salary"].sum())/(len(salaryData.loc[(salaryData["rank"]=="AssocProf"),"salary"]))
+assistantProfessorCombinedSalary = (salaryData.loc[salaryData['rank'] == "AsstProf", "salary"].sum())/(len(salaryData.loc[(salaryData["rank"]=="AsstProf"),"salary"]))
+
+
 gender = ['Male','Female']
 salary = [maleCombinedSalary,femaleCombinedSalary]
-plt.bar(gender,salary)
+plt.bar(gender,salary, color='purple')
+plt.title("Male vs Female Average Salary (All Prof. Types)")
+plt.xlabel("Gender")
+plt.ylabel("Average Salary")
 plt.show()
-'''
+
 
 #3
-'''
+
+#change y axis to fit data
 typeOfProfessor = ['Professor','Assistant','Associate']
 salary = [professorsCombinedSalary,assistantProfessorCombinedSalary, associateProfessorsCombinedSalary]
-plt.bar(typeOfProfessor, salary)
+plt.bar(typeOfProfessor, salary, color='orange')
+plt.title("Prof. Type vs Salary")
+plt.xlabel("Professor Type")
+plt.ylabel("Average Salary")
+
 plt.show()
-'''
+
 
 #4
 
@@ -98,11 +102,7 @@ maleAssocProf = (salaryData.loc[(salaryData["sex"] == "Male") & (salaryData["ran
 
 categories = ["Professors", "Asst. Professors", "Assoc. Professors"]
 femaleSalaries = [femaleProfessor, femaleAsstProf, femaleAssocProf]
-maleSalaries = [maleProfessor, maleAsstProf, maleAssocProf]\
-
-
-#print(femaleSalaries)
-#print(maleSalaries)
+maleSalaries = [maleProfessor, maleAsstProf, maleAssocProf]
 
 b1 = np.arange(len(categories))
 b2 = [i+0.3 for i in b1]
@@ -117,3 +117,5 @@ plt.xticks(b1, categories)
 plt.legend()
 plt.show()
 plt.plot()
+
+#5
