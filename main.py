@@ -79,7 +79,7 @@ plt.show()
 typeOfProfessor = ['Professor','Assistant','Associate']
 salary = [professorsCombinedSalary,assistantProfessorCombinedSalary, associateProfessorsCombinedSalary]
 plt.bar(typeOfProfessor, salary, color='orange')
-plt.title("Prof. Type vs Salary")
+plt.title("Prof. Type vs Average Salary")
 plt.xlabel("Professor Type")
 plt.ylabel("Average Salary")
 
@@ -118,4 +118,17 @@ plt.legend()
 plt.show()
 plt.plot()
 
-#5
+#5 - Pie Chart
+
+groupSize = [maleProfessor, femaleProfessor, maleAsstProf, femaleAsstProf, maleAssocProf, femaleAssocProf]
+pieLabels = ["Male Prof.", "Female Prof.", "Male Asst. Prof.", "Female Asst. Prof.", "Male Assoc. Prof.", "Female Assoc. Prof"]
+plt.pie(groupSize, labels=pieLabels, autopct="%.0f%%")
+plt.legend(bbox_to_anchor=(1.0, 1.0), loc='upper left')
+plt.title("Professor Type & Gender Represented as Part of Total Salaries Given")
+plt.show()
+
+#6 - Dot Plot
+
+
+
+
