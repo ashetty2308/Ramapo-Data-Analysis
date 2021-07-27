@@ -55,7 +55,6 @@ salaryData.to_csv('newCsvSalary.csv')
 
 #2
 
-#change y axis to fit data
 maleCombinedSalary = (salaryData.loc[salaryData['sex'] == "Male", "salary"].sum())/(len(salaryData.loc[(salaryData["sex"] == "Male"), "salary"]))
 femaleCombinedSalary = (salaryData.loc[salaryData['sex'] == "Female", "salary"].sum())/(len(salaryData.loc[(salaryData["sex"] == "Female"), "salary"]))
 
@@ -72,10 +71,10 @@ plt.xlabel("Gender")
 plt.ylabel("Average Salary")
 plt.show()
 
+#The average male salary was higher than the average female salary by around $15,0000 - $18,000
 
 #3
 
-#change y axis to fit data
 typeOfProfessor = ['Professor','Assistant','Associate']
 salary = [professorsCombinedSalary,assistantProfessorCombinedSalary, associateProfessorsCombinedSalary]
 plt.bar(typeOfProfessor, salary, color='orange')
@@ -85,6 +84,8 @@ plt.ylabel("Average Salary")
 
 plt.show()
 
+#Professors on average earned a higher salary than both associate and assistant professors by 30k and 40k respectively
+#Associate professors had a higher avergae salary than assistant professors, but lower than professors
 
 #4
 
@@ -129,6 +130,12 @@ plt.show()
 
 #6 - Dot Plot
 
+plt.scatter(salaryData["service"], salaryData["salary"], s=25, c='blue', edgecolors="black")
+plt.xlabel("Years of Service")
+plt.ylabel("Salary")
+plt.title("Years of Service vs. Salary")
+plt.show()
+plt.plot()
 
 
 
