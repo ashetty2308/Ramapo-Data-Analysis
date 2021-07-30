@@ -1,4 +1,4 @@
-# Ramapo-Data-Analysis-
+# Ramapo Data Analytics Internship
 
 All code in Python.
 
