@@ -9,6 +9,6 @@ Project 1 of my Data Analysis Internship at the Ramapo College of New Jersey (al
 ## Average Salary for Professor Type & Gender
 ![graph3](https://user-images.githubusercontent.com/77937577/127674780-6f0791aa-171b-4fcf-b815-5f08d4f490eb.png)
 ## Average Salary for Professor Type & Gender (Graph 2) 
-![graph4](https://user-images.githubusercontent.com/77937577/127674784-c37ec95b-9f2d-4a28-bbfc-afcbcf76e58f.png)
+![graph6](https://user-images.githubusercontent.com/77937577/127675622-7fc79bf5-4514-4880-93fc-f5a976cb765e.png)
 ## Years of Service vs Salary
 ![graph5](https://user-images.githubusercontent.com/77937577/127674788-21a53fc5-d0f0-4f08-b9a6-8159c2a63a71.png)
